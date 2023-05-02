@@ -61,10 +61,20 @@ def test(image, model_dir, device_id):
         test_speed += time.time()-start
 
     # draw result of prediction
+    # draw result of prediction
     label = np.argmax(prediction)
     value = prediction[0][label]/2
-
-    return label
+    print("Working")
+    print("Value - ",value)
+    print("Prediction - ",prediction)
+    print("Label - ",label)
+    print("Prediction[0] - ",prediction[0])
+    print("Prediction[0][label] - ",prediction[0][label])
+    diff = prediction[0][2] - prediction[0][1]
+    if diff > 4.0:
+        return 1
+    else:
+        return label
 
 
 if __name__ == "__main__":
